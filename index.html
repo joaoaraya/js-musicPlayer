@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/main/styles.css">
+    <title>Music Player</title>
+</head>
+<body>
+    <div class="container">
+        <img id="capa" src="scr/uploads/img/">
+        <div class="descricao">
+            <h1>nome da musica</h1>
+            <h2>autor</h2>
+        </div>
+        <div class="progresso">
+            <div class="barra">
+                <progress value="0" max="1"></progress>
+                <div class="ponto"></div>
+            </div>
+            <div class="tempo">
+                <p class="atual">0:00</p>
+                <p class="tudo">0:00</p>
+            </div>
+        </div>
+        <div class="player">
+            <img class="btn controle" id="btnVoltar" src="./src/main/icons/i_back.svg">
+            <img class="btn" id="btnPlay" src="./src/main/icons/i_play.svg">
+            <img class="btn" id="btnPausa" src="./src/main/icons/i_pause.svg">
+            <img class="btn controle" id="btnProximo" src="./src/main/icons/i_skip.svg">
+        </div>
+        <audio src="./src/uploads/music/Namaster Trip - Ofshane.mp3"></audio>
+    </div>
+
+    <script src="./src/main/musicPlayer.js"></script>
+</body>
+</html>
