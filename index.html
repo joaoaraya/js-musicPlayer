@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/main/styles.css">
+    <link rel="stylesheet" href="./src/main/styles/style.css">
     <title>Music Player</title>
 </head>
 <body>
     <div class="container">
-        <img id="capa" src="scr/uploads/img/">
+        <img id="capa" src="./src/uploads/img/m001.jpg">
         <div class="descricao">
-            <h1>nome da musica</h1>
-            <h2>autor</h2>
+            <h1>Titulo</h1>
+            <h2>Autor</h2>
         </div>
         <div class="progresso">
             <div class="barra">
@@ -20,7 +20,7 @@
             </div>
             <div class="tempo">
                 <p class="atual">0:00</p>
-                <p class="tudo">0:00</p>
+                <p class="total">0:00</p>
             </div>
         </div>
         <div class="player">
@@ -29,9 +29,10 @@
             <img class="btn" id="btnPausa" src="./src/main/icons/i_pause.svg">
             <img class="btn controle" id="btnProximo" src="./src/main/icons/i_skip.svg">
         </div>
-        <audio src="./src/uploads/music/Namaster Trip - Ofshane.mp3"></audio>
+        <audio src="./src/uploads/audio/m001.mp3"></audio>
     </div>
 
-    <script src="./src/main/musicPlayer.js"></script>
+    <!--Incluir 'TYPE = MODULE' para funcionar o import do JS-->
+    <script type="module" src="./src/main/actions/musicPlayer.js"></script>
 </body>
 </html>
