@@ -49,13 +49,13 @@ const voltarMusica = () => {
 
 // Mudar a barra e o ponto com a porcentagem do progresso da música
 const atualizarBarra = () => {
-    barra.style.width =  Math.floor(Number(musica.currentTime) / Number(musica.duration) * 100) + '%';
-    tempoAtual.textContent = tempo(Math.floor(Number(musica.currentTime)));
+    barra.style.width =  parseInt(Number(musica.currentTime) / Number(musica.duration) * 100) + '%';
+    tempoAtual.textContent = tempo(parseInt(Number(musica.currentTime)));
 };
 
 // Converter os segundos em minutos com formatação '0:00'
 const tempo = (segundos) => {
-    let min = Math.floor(segundos / 60);
+    let min = parseInt(segundos / 60);
     let seg = segundos % 60;
     if (seg < 10) {
         seg = '0' + seg
@@ -70,7 +70,7 @@ const renderizarMusica = (i) => {
         musicaTitulo.textContent = musicas[i].titulo;
         musicaAutor.textContent = musicas[i].autor;
         musicaCapa.src = files + 'img/' + musicas[i].img;
-        tempoTotal.textContent = tempo(Math.floor(Number(musica.duration)));
+        tempoTotal.textContent = tempo(parseInt(Number(musica.duration)));
         if (i > 0) {
             tocarMusica();
         }
