@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/main/styles/style.css">
     <title>Music Player</title>
 </head>
+
 <body>
+    <div class="capaCover"></div>
     <div class="container">
         <img id="capa" src="./src/uploads/img/m001.jpg">
-        <div class="descricao">
-            <h1>Titulo</h1>
-            <h2>Autor</h2>
-        </div>
+        <h1 id="titulo">Titulo</h1>
+        <h2 id="autor">Autor</h2>
         <div class="progresso">
             <div class="barra">
                 <progress value="0" max="1"></progress>
@@ -33,6 +34,7 @@
     </div>
 
     <!--Incluir 'TYPE = MODULE' para funcionar o import do JS-->
-    <script type="module" src="./src/main/actions/musicPlayer.js"></script>
+    <script type="module" src="./src/main/functions/musicPlayer.js"></script>
 </body>
+
 </html>

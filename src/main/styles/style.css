@@ -1,87 +1,198 @@
-body, html {
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
     margin: 0;
-    padding: 0;
+    transition: 0.1s;
+}
+
+body {
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #333;
-    color: #ddd;
-    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto auto;
+    grid-auto-flow: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 768px;
+    max-height: 90%;
+    margin: 32px;
+}
+
+.capaCover {
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(60px);
 }
 
 #capa {
-    width: 300px;
-    height: 300px;
+    grid-column: 1;
+    grid-row-start: span 2;
+    width: 192px;
+    height: 192px;
+    margin-left: 16px;
+    filter: drop-shadow(0px 24px 60px rgba(0, 0, 0, 0.25));
+    border-radius: 8px;
 }
 
-.btn {
-    width: 60px;
-    height: 60px;
+#titulo, #autor {
+    grid-column: 2;
+    justify-self: stretch;
+    margin: 0 16px 0 32px;
+    /*max char*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.descricao {
-    width: 300px;
+#titulo {
+    grid-row: 1;
+    margin-top: 24px;
+    align-self: end;
+    font-size: 48px;
 }
 
-h2 {
-    margin-bottom: 5px;
+#autor {
+    grid-row: 2;
+    align-self: start;
+    font-size: 32px;
+    color: rgba(255, 255, 255, 0.5);
 }
 
-.duracao {
-    width: 300px;
-    margin-top: 25px;
+.progresso {
+    padding: 128px 0 56px 0;
+}
+
+.progresso, .player {
+    grid-column-start: span 2;
+    margin: 0;
 }
 
 .barra {
-    width: 300px;
-    height: 6px;
-    border: 1px solid #eee;
-    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    width: 100%;
+    height: 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.3);
 }
 
 progress {
-    height: 6px;
     width: 0%;
-    background-color: #333;
+}
+
+progress, progress::-webkit-progress-bar, progress::-moz-progress-bar {
+    height: 8px;
+    background: rgb(255, 255, 255);
+    border-radius: 8px;
 }
 
 .ponto {
-    width: 20px;
-    height: 20px;
-    background-color: #eee;
+    width: 24px;
+    height: 24px;
+    background: #FFFFFF;
     border-radius: 50%;
-    margin-left: -10px;
+    box-shadow: 0px 0px 60px rgb(0, 0, 0);
+    margin-left: -12px;
 }
 
 .tempo {
     display: flex;
-    width: 300px;
     justify-content: space-between;
+    width: 100%;
+    padding-top: 16px;
+    font-size: 22px;
+    color: #FFFFFF;
 }
 
 .player {
-    width: 300px;
+    grid-column-start: span 2;
+    grid-row: 4;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 15px;
+    width: 100%;
 }
 
-#btnPausa, #btnPlay {
-    font-size: 50px;
-    cursor: pointer;
-}
-
-.controle {
-    font-size: 40px;
+.btn {
     cursor: pointer;
 }
 
 #btnPausa {
     display: none;
+}
+
+/* ---------- Mobile --------------- */
+
+@media screen and (max-device-width: 640px), screen and (max-width: 640px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, auto);
+        max-width: 100%;
+    }
+    #capa {
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: center;
+        width: 100%;
+        max-width: 280px;
+        height: 100%;
+        margin: 0;
+    }
+    #titulo, #autor {
+        grid-column: 1;
+        justify-self: stretch;
+        text-align: center;
+        margin: 0;
+    }
+    #titulo {
+        grid-row: 2;
+        align-self: end;
+        font-size: 40px;
+        margin-top: 24px;
+    }
+    #autor {
+        grid-row: 3;
+        align-self: start;
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+    .progresso {
+        grid-column: 1;
+        grid-row: 4;
+        padding: 8px 0 16px 0;
+        margin: 0;
+    }
+    .tempo {
+        font-size: 16px;
+    }
+    .player {
+        grid-column: 1;
+        grid-row: 5;
+    }
+    #btnPlay, #btnPausa {
+        width: 80px;
+        height: 80px;
+    }
+    #btnProximo, #btnVoltar {
+        width: 40px;
+        height: 40px;
+    }
 }
