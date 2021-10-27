@@ -43,6 +43,7 @@ body {
 #capa {
     grid-column: 1;
     grid-row-start: span 2;
+    align-self: start;
     width: 192px;
     height: 192px;
     margin-left: 16px;
@@ -75,7 +76,7 @@ body {
 }
 
 .progresso {
-    padding: 128px 0 56px 0;
+    padding: 8% 0 4% 0;
 }
 
 .progresso, .player {
@@ -138,7 +139,7 @@ progress, progress::-webkit-progress-bar, progress::-moz-progress-bar {
     display: none;
 }
 
-/* ---------- Mobile --------------- */
+/* ---------- Mobile (responsividade lateral) --------------- */
 
 @media screen and (max-device-width: 640px), screen and (max-width: 640px) {
     .container {
@@ -194,5 +195,19 @@ progress, progress::-webkit-progress-bar, progress::-moz-progress-bar {
     #btnProximo, #btnVoltar {
         width: 40px;
         height: 40px;
+    }
+}
+
+/* ---------- Mobile (responsividade superior) --------------- */
+
+@media screen and (max-device-height: 600px), screen and (max-height: 600px) {
+    .capaCover {
+        filter: blur(2px);
+    }
+    #capa {
+        display: none;
+    }
+    #titulo {
+        margin-top: 0;
     }
 }
